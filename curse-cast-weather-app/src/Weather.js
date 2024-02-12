@@ -16,12 +16,5 @@ const Weather = () => {
       console.error('Error fetching the weather data', error);
     });
   }) };
-
-  if (!weatherData) return <p>Loading...</p>;
-
-  return (
-    <div>
-      <h1>Weather in Rolla</h1>
-      <p>Tempertature</p>
-    </div>
-  )
+ 
+  export default Weather;
