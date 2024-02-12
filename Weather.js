@@ -1,31 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect } from "react";
 import axios from "axios";
 
 const Weather = () => {
   const [weatherData, setWeatherData] = useState(null);
 
   useEffect(() => {
-    const API_KEY = 'your_openweathermap_api_key';
-    const URL =
-`https://api.openweathermap.org/data/2.5/weather?q=Rolla&appid=${API_KEY}&units=imperial`;
+    const API_KEY = '6c9c537a6d972dcf18875179f747da7a';
+    const URL = `http://api.weatherstack.com/current?access_key=${API_KEY}&query=Rolla&units=f`;
 
-      axios.get(URL)
-        .then((response) => {
-          setWeatherData(response.data);
-        })
-        .catch((error) => {
-          console.error('Error fetching the weather data', error);
-        });
-  }, [])};
+    axios.get(URL)
+    .then((response) => {
+      console.log('Weather data:', response.data);
+    })
+    .catch((error) => {
+      console.error('Error fetching the weather data', error);
+    });
+  }) };
 
   if (!weatherData) return <p>Loading...</p>;
 
   return (
     <div>
       <h1>Weather in Rolla</h1>
-      <p>Temperature: {weatherData.main.temp}*F</p>
-      <p>Condition: {weatherData.weather[0].description}</p>
+      <p>Tempertature</p>
     </div>
-  );
-
-export default Weather;
+  )
